@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For My Besty ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to right, #ff758c, #ff7eb3);
+    font-family: Arial;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.box {
+    margin-top: 100px;
+}
+
+h1 {
+    font-size: 35px;
+}
+
+#message {
+    font-size: 22px;
+    margin-top: 20px;
+    min-height: 120px;
+}
+
+button {
+    padding: 12px 25px;
+    font-size: 18px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    background: white;
+    color: #ff4d6d;
+}
+
+/* قلوب */
+.heart {
+    position: absolute;
+    color: red;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 1; }
+    100% { transform: translateY(-800px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>To My Besty 💖</h1>
+    <p id="message">Click the button 👇</p>
+    <button onclick="startMessage()">Click here</button>
+</div>
+
+<script>
+let text = `3loulu🥀 stahfidh 3la rou7ek lperiod hedhi ❤️
+Wallah 7assis bik mawjou3a ma titsawarch 9adeh 
+5ayef 3lik barcha... please take care of yourself 🙏
+
+W ken 7achtik b ay 7aja, 9oli
+na3mel elli na9der 3lih bich n3awnek 
+
+N7ebek barcha besty 💕
+Be happy always 🌸`;
+
+let i = 0;
+
+function startMessage() {
+    document.getElementById("message").innerHTML = "";
+    typeWriter();
+}
+
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("message").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    }
+}
+
+// قلوب تطير
+setInterval(() => {
+    let heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "❤️";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.fontSize = (Math.random() * 20 + 20) + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 5000);
+}, 300);
+</script>
+
+</body>
+</html>
